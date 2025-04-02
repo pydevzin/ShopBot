@@ -186,15 +186,15 @@ AES_KEY = env.str("AES_KEY", "")
 
 JAZZMIN_SETTINGS = {
 
-    "site_title": "Bito Finance Admin",
-    "site_header": "Bito Finance Admin",
-    "site_brand": "Bito Finance Admin",
+    "site_title": "my project  Admin",
+    "site_header": "my project  Admin",
+    "site_brand": "my project  Admin",
     "site_logo": "bito_finance_logo.png",
     "login_logo": "jazzmin_login.png",
     "login_logo_dark": None,
     "site_logo_classes": "img-circle",
     "site_icon": None,
-    "welcome_sign": "Welcome to the Bito Finance",  # noqa
+    "welcome_sign": "Welcome to the my project ",  # noqa
     "copyright": "Acme Library Ltd",
     "search_model": ["auth.User", "auth.Group"],
     "user_avatar": None,

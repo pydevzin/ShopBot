@@ -1,6 +1,6 @@
 django
 psycopg2-binary
-python-environ
+python-environ==0.4.54
 django-cors-headers
 drf-yasg
 djangorestframework
@@ -11,3 +11,5 @@ cryptography==41.0.7
 celery==5.3.6
 redis==5.0.1
 flower==2.0.1
+django-jazzmin==3.0.1
+
