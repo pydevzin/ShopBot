@@ -1,8 +1,13 @@
+import os
+import django
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings.base')
+django.setup()
+
 import asyncio
 import logging
 from loguru import logger
 from apps.bot.config.run_bot import main as run_bot
-
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)

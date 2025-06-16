@@ -32,6 +32,9 @@ DEBUG = env.bool("DEBUG")
 
 ALLOWED_HOSTS = ["*"]
 
+
+AUTH_USER_MODEL = 'shop.User'
+
 # Application definition
 DJANGO_APPS = [
     "jazzmin",
@@ -45,6 +48,7 @@ DJANGO_APPS = [
 
 CUSTOM_APPS = [
     "apps.common",
+    'apps.shop',
 ]
 
 THIRD_PARTY_APPS = [

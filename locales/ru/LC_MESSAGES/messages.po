@@ -1,0 +1,94 @@
+# Russian translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-06-16 20:25+0500\n"
+"PO-Revision-Date: 2025-06-14 18:31+0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: apps/bot/handlers/category_menu.py:21
+msgid "Ichki kategoriyalardan birini tanlang:"
+msgstr "Выберите одну из подкатегорий:"
+
+#: apps/bot/handlers/category_menu.py:30
+msgid "Kategoriyalardan birini tanlang:"
+msgstr "Выберите одну из категорий:"
+
+#: apps/bot/handlers/register.py:23
+msgid "Ismingizni kiriting:"
+msgstr "Введите свое имя:"
+
+#: apps/bot/handlers/register.py:31
+msgid "Telefon raqamingizni yuboring:"
+msgstr "Отправьте свой номер телефона:"
+
+#: apps/bot/handlers/register.py:42
+msgid "To`g`ri formatda raqam jo`nating yoki buttondan foydalaning"
+msgstr ""
+"Пожалуйста, отправьте номер в правильном формате или воспользуйтесь "
+"кнопкой"
+
+#: apps/bot/handlers/register.py:59 apps/bot/handlers/start.py:27
+msgid "kategoriyalardan birini tanlang:"
+msgstr "Выберите одну из категорий:"
+
+#: apps/bot/handlers/start.py:17
+msgid "Assalomu alaykum, xush kelibsiz"
+msgstr ""
+
+#: apps/common/models.py:6
+msgid "Created at"
+msgstr ""
+
+#: apps/common/models.py:7
+msgid "Updated at"
+msgstr ""
+
+#: apps/common/models.py:14
+msgid "Version"
+msgstr ""
+
+#: apps/common/models.py:15
+msgid "Required"
+msgstr ""
+
+#: apps/common/models.py:18
+msgid "Version history"
+msgstr ""
+
+#: apps/common/models.py:19
+msgid "Version histories"
+msgstr ""
+
+#: apps/shop/models.py:9
+msgid "Fullname"
+msgstr ""
+
+#: apps/shop/models.py:10
+msgid "Phone_number"
+msgstr ""
+
+#: apps/shop/models.py:11
+msgid "Telegram_id"
+msgstr ""
+
+#: apps/shop/models.py:12
+msgid "Language"
+msgstr ""
+
+#~ msgid "Ro'yxatdan o'tish yakunlandi."
+#~ msgstr "Регистрация завершена."
+

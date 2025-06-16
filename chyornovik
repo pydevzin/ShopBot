@@ -1,0 +1,21 @@
+
+# @router.callback_query(LanguageCallbackData.filter())
+# async def start_register(callback_query: types.CallbackQuery,
+#                          state: FSMContext,
+#                          callback_data: LanguageCallbackData
+#                          ):
+#     await state.update_data({'language': callback_data.language})
+#     text = _("Telefon raqamingizni yuboring")  # noqa
+#
+#     await callback_query.message.answer(text, reply_markup=reply_phone_number())
+#     await state.set_state(RegistrationStateGroup.phone)
+
+
+
+
+
+# @router.message(F.contact, RegistrationStateGroup.phone)
+# async def phone_register(message: types.Message, state: FSMContext):
+#     await state.update_data({'phone_number': message.contact.phone_number})
+#     await message.answer(_("Ro'yxatdan o'tish yakunlandi."),  # noqa
+#                          reply_markup=types.ReplyKeyboardRemove())
