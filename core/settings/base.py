@@ -114,7 +114,7 @@ DATABASES = {
         "PASSWORD": env.get_value("DB_PASSWORD"),
         "HOST": env.str("DB_HOST"),
         "PORT": env.str("DB_PORT"),
-        "ATOMIC_REQUESTS": True,
+        # "ATOMIC_REQUESTS": True,
     }
 }
 
@@ -266,7 +266,7 @@ JAZZMIN_SETTINGS = {
     # for the full list of 5.13.0 free icon classes
     "icons": {
         "auth.User": "fas fa-user",
-        "auth.Group": "fas fa-users",
+        "auth.Group": "fas fa-user",
     },
     # Icons that are used when one is not manually specified
     "default_icon_parents": "fas fa-chevron-circle-right",

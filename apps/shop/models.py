@@ -1,6 +1,12 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import AbstractUser
+
+from PIL import Image
+from io import BytesIO
+from django.core.files.base import ContentFile
+import os
+
 from apps.common.models import BaseModel
 from .manager import UserManager
 
@@ -43,7 +49,6 @@ class Category(BaseModel):
     def __str__(self):
         return self.name_uz
 
-
     def get_name(self, language='uz'):
         return self.name_ru if language == 'ru' else self.name_uz
 
@@ -56,7 +61,6 @@ class Product(BaseModel):
     name_uz = models.CharField(max_length=255)
     name_ru = models.CharField(max_length=255)
     categories = models.ForeignKey('Category', on_delete=models.CASCADE, related_name='products')
-    main_image = models.ImageField(upload_to='products/main/')
 
     objects = models.Manager()
 
@@ -71,12 +75,12 @@ class Product(BaseModel):
 class ColorVariant(BaseModel):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='colors')
     color_name = models.CharField(max_length=100)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    price = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
 
     objects = models.Manager()
 
     def __str__(self):
-        return f"{self.product.name_uz} - {self.color_name}"    # noqa
+        return f"{self.color_name}"  # noqa
 
     class Meta:
         verbose_name = 'ColorVariant'
@@ -89,9 +93,42 @@ class ProductImage(models.Model):
 
     objects = models.Manager()
 
+    def save(self, *args, **kwargs):
+        if self.image and not self.image.name.endswith('.jpg'):
+            img = Image.open(self.image)    # noqa
+
+            if img.mode != 'RGB':
+                img = img.convert('RGB')
+
+            filename = os.path.splitext(self.image.name)[0] + ".jpg"
+
+            buffer = BytesIO()
+            img.save(buffer, format='JPEG', quality=85)
+            buffer.seek(0)
+
+            self.image = ContentFile(buffer.read(), name=filename)
+
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return f"Image for {self.color_variant}"
 
     class Meta:
         verbose_name = 'ProductImage'
         verbose_name_plural = 'ProductImages'
+
+
+class CartItem(BaseModel):
+    user = models.ForeignKey('User', on_delete=models.CASCADE, related_name='cart_items')
+    product = models.ForeignKey('Product', on_delete=models.CASCADE)
+    color_variant = models.ForeignKey('ColorVariant', on_delete=models.CASCADE)
+
+    objects = models.Manager()
+
+    class Meta:
+        unique_together = ('user', 'color_variant')
+        verbose_name = 'Cart Item'
+        verbose_name_plural = 'Cart Items'
+
+    def __str__(self):
+        return f"{self.user} - {self.color_variant}"

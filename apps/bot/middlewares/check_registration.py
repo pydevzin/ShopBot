@@ -18,14 +18,12 @@ class UserMiddleware(BaseMiddleware):
         state = data['state']
         current_state = await state.get_state()
 
-
         user = None
         if hasattr(event, 'from_user') and event.from_user:
             telegram_id = event.from_user.id
             user = await sync_to_async(User.objects.filter(telegram_id=telegram_id).first)()
-            if user:
-                data['user'] = user
 
+        data['user'] = user
 
         if current_state in [
             RegistrationStateGroup.language,
@@ -34,9 +32,11 @@ class UserMiddleware(BaseMiddleware):
         ]:
             return await handler(event, data)
 
-
         if user is None:
             chat_id = event.from_user.id
+
+            await event.answer("Iltimos, avval ro'yxatdan o'ting")  # noqa
+
             await bot.send_message(
                 chat_id=chat_id,
                 text="Iltimos, avval ro'yxatdan o'ting.",  # noqa
@@ -48,6 +48,7 @@ class UserMiddleware(BaseMiddleware):
                 text="Tilni tanlang:",  # noqa
                 reply_markup=inline_languages()
             )
+
             return
 
         return await handler(event, data)

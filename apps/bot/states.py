@@ -10,3 +10,5 @@ class RegistrationStateGroup(StatesGroup):
 class CategoryStateGroup(StatesGroup):
     main_category = State()
     sub_category = State()
+    product_list = State()
+
