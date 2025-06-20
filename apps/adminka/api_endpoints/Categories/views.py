@@ -2,7 +2,7 @@ from rest_framework.generics import CreateAPIView
 from rest_framework import generics
 from rest_framework.permissions import IsAdminUser
 from rest_framework import filters
-from apps.adminka.api_endpoints.Categories.serializers import CategorySerializer
+from .serializers import CategorySerializer
 from apps.shop.models import Category
 
 

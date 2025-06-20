@@ -22,3 +22,10 @@ urlpatterns += [
 urlpatterns += [
     path('CartItem/list', api_endpoints.CartItemListView.as_view(), name='cart-list'),
 ]
+
+urlpatterns += [
+    path('users/list', api_endpoints.UserListAPIView.as_view(), name='user-list'),
+    path('users/status/<int:pk>/', api_endpoints.UserStatusUpdateAPIView.as_view(), name='user-status-update'),
+    path('users/inactive', api_endpoints.InactiveUserListAPIView.as_view(), name='inactive-users'),
+    path('users/active', api_endpoints.ActiveUserListAPIView.as_view(), name='active-users'),
+]
