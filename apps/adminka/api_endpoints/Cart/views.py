@@ -1,7 +1,7 @@
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 
-from apps.adminka.api_endpoints.Cart.serializers import CartItemSerializer
+from .serializers import CartItemSerializer
 from apps.shop.models import CartItem
 
 
