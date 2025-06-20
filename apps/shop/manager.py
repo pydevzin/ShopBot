@@ -25,10 +25,10 @@ class UserManager(BaseUserManager):
         return self.create_user(phone_number, password, **extra_fields)
 
     @sync_to_async
-    def bot_create_user(self, fullname, phone_number, **extra_fields):
-        if self.model.objects.filter(phone_number=phone_number).exists():
+    def bot_create_user(self, fullname, telegram_id, **extra_fields):
+        if self.model.objects.filter(telegram_id=telegram_id).exists():
             return None
-        user = self.model(fullname=fullname, phone_number=phone_number, **extra_fields)
+        user = self.model(fullname=fullname, telegram_id=telegram_id, **extra_fields)
 
         """ set_unusable_password foydalanuvchi hech qanday parol bilan login qila olmasligini ta'minlaydi ,
             set_unusable_password() → password maydoniga ! bilan boshlangan random hash yozadi.

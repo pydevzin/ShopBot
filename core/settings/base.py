@@ -49,6 +49,7 @@ DJANGO_APPS = [
 CUSTOM_APPS = [
     "apps.common",
     'apps.shop',
+    'apps.adminka'
 ]
 
 THIRD_PARTY_APPS = [
