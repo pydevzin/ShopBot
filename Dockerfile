@@ -1,5 +1,4 @@
-FROM python:3.9
-
+FROM python:3.9-alpine
 WORKDIR /app
 
 COPY . /app
@@ -7,6 +6,6 @@ COPY . /app
 RUN apk update && \
     apk add --no-cache gcc musl-dev libffi-dev postgresql-dev && \
     pip install --upgrade pip && \
-    pip install -r production.txt
+    pip install -r requirements/production.txt
 
 CMD ["sh", "-c", "python manage.py runserver 0.0.0.0:8000 & python main.py"]

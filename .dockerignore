@@ -12,3 +12,6 @@ venv/
 
 Dockerfile
 docker-compose.yml
+
+medis/
+staticfiles/
