@@ -29,7 +29,6 @@ async def init_aiogram():
     dp.callback_query.middleware(user_middleware)
     setup_handlers(dp)
     await bot.set_webhook(bot_config.WEBHOOK_URL)
-    print(f"Webhook set to: {bot_config.WEBHOOK_URL}")
     return bot, dp
 
 
